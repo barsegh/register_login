@@ -18,11 +18,11 @@ class User{
 
 	function login($userlogin,$password){
 		$password = md5($password);
-		$result = mysql_query("SELECT id FROM users WHERE email='$userlogin' or username='$userlogin' and password='$password'");
+		$result = mysql_query("SELECT id FROM users WHERE (email='$userlogin' or username='$userlogin') and password='$password'");
 		$array = mysql_fetch_array($result);
 		$num_rows = mysql_num_rows($result);
 
-		if($num_rows == 1){
+		if($num_rows === 1){
 			$_SESSION['login'] = true;
 			$_SESSION['id'] = $array['id'];
 			return true;
