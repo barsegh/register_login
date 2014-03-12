@@ -8,7 +8,7 @@ class User{
 		$num_rows = mysql_num_rows($sql);
 
 		if($num_rows == 0){
-			$result = mysql_query("INSERT INTO users(name,username,password,email) VALUE ('$name','$username','$password','$email')") or die(mysql_error());
+			$result = mysql_query("INSERT INTO users(name,username,password,email) VALUES ('$name','$username','$password','$email')") or die(mysql_error());
 			return $result;
 		}else{
 			return false;
